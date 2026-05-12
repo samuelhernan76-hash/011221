@@ -1,225 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Para Valeria</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1:#ffd6e0; --bg2:#fff1f6; --accent:#ff4d88; --accent-dark:#c73263; --gold:#f7d28a;
-      --shadow: 0 12px 40px rgba(200,50,100,0.18);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Valeria ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
     }
 
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(160deg,var(--bg1),var(--bg2));
-      overflow-x:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      padding:20px 0;
+    body{
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+        overflow:hidden;
+        font-family:'Montserrat',sans-serif;
     }
 
-    /* Card */
+    /* TARJETA */
     .card{
-      position:relative;
-      z-index:2;
-      width:90%;
-      max-width:400px;
-      padding:32px;
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.92));
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:24px;
-      text-align:center;
+        width:90%;
+        max-width:520px;
+        background:rgba(255,255,255,0.96);
+        padding:45px 35px;
+        border-radius:28px;
+        text-align:center;
+        box-shadow:0 15px 40px rgba(255,77,136,0.25);
+        animation:float 4s ease-in-out infinite;
+        z-index:2;
+        backdrop-filter:blur(6px);
     }
 
-    /* Left content */
-    .greeting{
-      font-family:'Great Vibes', cursive;
-      font-size:48px;
-      color:var(--accent-dark);
-      margin:0 0 6px;
-    }
-    .proposal{
-      font-size:24px;
-      color:#6b2a4a;
-      margin:0;
-      font-weight:600;
-      line-height:1.2;
-    }
-    .love-line{
-      color:#8b5371;
-      font-size:16px;
-      font-style:italic;
-      margin-top:8px;
+    @keyframes float{
+        0%{transform:translateY(0);}
+        50%{transform:translateY(-8px);}
+        100%{transform:translateY(0);}
     }
 
-    /* Heart + VS */
-    .heart-wrap{
-      position:relative;
-      width:100%;
-      display:flex;
-      justify-content:space-between; /* separa corazón y VS */
-      align-items:center;
-      margin-top:16px;
+    /* TEXTO PRINCIPAL */
+    .text{
+        font-family:'Dancing Script',cursive;
+        font-size:42px;
+        line-height:1.4;
+        color:#c73263;
+        text-shadow:0 4px 10px rgba(255,77,136,0.15);
     }
 
-    .heart-svg{
-      width:130px; /* más grande */
-      height:130px;
-      filter:drop-shadow(0 12px 28px rgba(255,77,136,.28));
-      animation:pulseMove 3s ease-in-out infinite; /* más movimiento */
-      z-index:5;
-      flex-shrink:0;
+    /* TEXTO AMOR */
+    .love{
+        margin-top:25px;
+        font-family:'Montserrat',sans-serif;
+        font-size:28px;
+        font-weight:700;
+        color:#ff4d88;
+        letter-spacing:1px;
     }
 
-    @keyframes pulseMove{
-      0%{transform:translateY(0) scale(1) rotate(0deg);}
-      25%{transform:translateY(-4px) scale(1.08) rotate(-2deg);}
-      50%{transform:translateY(-2px) scale(1.12) rotate(2deg);}
-      75%{transform:translateY(-4px) scale(1.08) rotate(-1deg);}
-      100%{transform:translateY(0) scale(1) rotate(0deg);}
+    /* CORAZÓN MÁS PEQUEÑO */
+    .heart{
+        width:85px;
+        height:85px;
+        margin:35px auto 0;
+        position:relative;
+        transform:rotate(-45deg);
+        animation:pulse 1.5s infinite;
     }
 
-    .photo-wrap.initials{
-      width:130px;
-      height:180px;
-      border-radius:22px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 12px 28px rgba(0,0,0,0.22);
-      background:linear-gradient(135deg,#ffe9f2,#fff);
-      padding:8px;
-      animation:floatVS 5s ease-in-out infinite; /* más movimiento */
-      flex-shrink:0;
+    .heart::before,
+    .heart::after{
+        content:"";
+        position:absolute;
+        width:85px;
+        height:85px;
+        background:#ff4d88;
+        border-radius:50%;
     }
 
-    @keyframes floatVS{
-      0%{transform:translateY(0);}
-      25%{transform:translateY(-6px);}
-      50%{transform:translateY(-3px);}
-      75%{transform:translateY(-6px);}
-      100%{transform:translateY(0);}
+    .heart::before{
+        top:-42px;
+        left:0;
     }
 
-    .photo-wrap.initials .vs{display:flex;align-items:center;gap:4px}
-    .photo-wrap.initials .V,.photo-wrap.initials .S{
-      font-family:'Great Vibes',cursive;
-      font-size:36px;
-      color:#b4004e;
-      line-height:1;
-    }
-    .photo-wrap.initials .y{
-      font-family:'Playfair Display',serif;
-      font-size:14px;
-      color:#8b2e4f;
-      font-style:italic;
-      align-self:flex-end;
-      margin-bottom:4px;
-    }
-    .photo-wrap.initials .date{
-      margin-top:6px;
-      font-size:12px;
-      letter-spacing:2px;
-      color:#6b4b5f;
+    .heart::after{
+        left:42px;
+        top:0;
     }
 
-    /* Floating hearts */
-    .hearts{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-    .fheart{position:absolute;will-change:transform,opacity;transform-origin:center;opacity:0;animation:floatUp linear infinite}
-    .vstoken{position:absolute;will-change:transform,opacity;font-family:'Playfair Display',serif;font-weight:700;color:rgba(180,0,78,0.95);opacity:0;animation:floatUp var(--dur,14s) linear infinite;text-shadow:0 6px 18px rgba(255,255,255,0.08)}
-    @keyframes floatUp{
-      0%{transform:translateY(120vh) scale(.6) rotate(-10deg);opacity:0}
-      10%{opacity:.95}
-      100%{transform:translateY(-30vh) scale(1.15) rotate(6deg);opacity:0}
+    .heart-main{
+        width:85px;
+        height:85px;
+        background:#ff4d88;
+        position:absolute;
     }
 
-  </style>
+    @keyframes pulse{
+        0%{
+            transform:rotate(-45deg) scale(1);
+        }
+        50%{
+            transform:rotate(-45deg) scale(1.1);
+        }
+        100%{
+            transform:rotate(-45deg) scale(1);
+        }
+    }
+
+    /* CORAZONES FLOTANTES */
+    .floating-heart{
+        position:absolute;
+        color:rgba(255,77,136,0.3);
+        animation:up linear infinite;
+        user-select:none;
+    }
+
+    @keyframes up{
+        from{
+            transform:translateY(100vh);
+            opacity:0;
+        }
+
+        10%{
+            opacity:1;
+        }
+
+        to{
+            transform:translateY(-120vh);
+            opacity:0;
+        }
+    }
+
+</style>
 </head>
+
 <body>
-  <div class="hearts" id="hearts"></div>
 
-  <div class="card" role="main">
-    <h1 class="greeting">Valeria</h1>
-    <p class="proposal">¿Quieres ser mi esposa <strong>para siempre</strong>?</p>
-    <p class="love-line">Eres lo que más amo en este mundo.</p>
+<!-- TARJETA -->
+<div class="card">
 
-    <div class="heart-wrap" aria-hidden="true">
-      <!-- Corazón a la izquierda -->
-      <svg class="heart-svg" viewBox="0 0 512 472" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ff8fc0"/>
-            <stop offset="100%" stop-color="#ff4d88"/>
-          </linearGradient>
-          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="6" result="b"/>
-            <feBlend in="SourceGraphic" in2="b" mode="screen"/>
-          </filter>
-        </defs>
-        <path d="M256 464s-16-14.4-32-28.8C120 350.4 48 292.8 48 200 48 142.4 92.8 96 150.4 96c32 0 64 16 83.2 41.6C252.8 112 284.8 96 316.8 96 374.4 96 419.2 142.4 419.2 200c0 92.8-72 150.4-176 235.2-16 14.4-32 28.8-32 28.8z" fill="url(#grad)" filter="url(#softGlow)"/>
-      </svg>
-
-      <!-- VS a la derecha -->
-      <div class="photo-wrap initials" aria-hidden="true">
-        <div class="vs"><span class="V">V</span><span class="y">y</span><span class="S">S</span></div>
-        <div class="date">1 · 12 · 21</div>
-      </div>
+    <div class="text">
+        JUNTOS POR Y PARA SIEMPRE<br>
+        QUE NADA NI NADIE NOS SEPARE
     </div>
-  </div>
 
-  <script>
-    (function(){
-      const container = document.getElementById('hearts');
-      const HEARTS = 28;
-      const ns = 'http://www.w3.org/2000/svg';
-      for(let i=0;i<HEARTS;i++){
-        const svg = document.createElementNS(ns, 'svg');
-        svg.setAttribute('viewBox','0 0 24 24');
-        svg.classList.add('fheart');
-        const size = 20 + Math.random()*48;
-        svg.style.width = size + 'px';
-        svg.style.height = size + 'px';
-        svg.style.left = (5 + Math.random()*90) + '%';
-        svg.style.top = (85 + Math.random()*25) + '%';
-        const dur = 10 + Math.random()*22;
-        svg.style.animationDuration = dur + 's';
-        svg.style.animationDelay = (-Math.random()*25) + 's';
-        svg.style.opacity = (0.4 + Math.random()*0.5).toFixed(2);
-        const path = document.createElementNS(ns,'path');
-        path.setAttribute('d','M12 21s-6.716-4.867-9.242-7.243C-0.513 10.896 1.09 6.5 4.5 6.5c1.9 0 3.08 1.198 3.5 1.8.42-.602 1.6-1.8 3.5-1.8 3.41 0 5.01 4.396 1.742 7.257C18.716 16.133 12 21 12 21z');
-        path.setAttribute('fill','var(--accent)');
-        svg.appendChild(path);
-        container.appendChild(svg);
-      }
+    <div class="love">
+        TE AMOOOO MUCHOOO MI VALERIA ❤️
+    </div>
 
-      const TOKENS = 12;
-      const tokenChoices = ['v ♥ s'];
-      for(let i=0;i<TOKENS;i++){
-        const span = document.createElement('div');
-        span.className = 'vstoken';
-        span.textContent = tokenChoices[0];
-        const size = 16 + Math.random()*36;
-        span.style.fontSize = size + 'px';
-        span.style.left = (5 + Math.random()*90) + '%';
-        span.style.top = (85 + Math.random()*25) + '%';
-        const dur = 12 + Math.random()*18;
-        span.style.setProperty('--dur', dur + 's');
-        span.style.animationDuration = dur + 's';
-        span.style.animationDelay = (-Math.random()*25) + 's';
-        span.style.opacity = (0.25 + Math.random()*0.6).toFixed(2);
-        container.appendChild(span);
-      }
-    })();
-  </script>
+    <!-- CORAZÓN -->
+    <div class="heart">
+        <div class="heart-main"></div>
+    </div>
+
+</div>
+
+<script>
+
+    // Corazones flotando
+    for(let i=0;i<25;i++){
+
+        const heart = document.createElement("div");
+
+        heart.classList.add("floating-heart");
+
+        heart.innerHTML = "❤";
+
+        heart.style.left = Math.random()*100 + "vw";
+
+        heart.style.fontSize = (15 + Math.random()*40) + "px";
+
+        heart.style.animationDuration = (5 + Math.random()*10) + "s";
+
+        heart.style.animationDelay = Math.random()*5 + "s";
+
+        document.body.appendChild(heart);
+    }
+
+</script>
+
 </body>
 </html>
